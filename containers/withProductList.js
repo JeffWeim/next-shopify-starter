@@ -1,5 +1,4 @@
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
+import { gql, graphql } from '@apollo/react-hoc'
 
 // Change this handle to whatever collection you'd like
 const productList = gql`

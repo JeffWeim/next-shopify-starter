@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import fetch from 'isomorphic-fetch'
-import styled from 'styled-components'
 import { compose, withState, lifecycle, withProps } from 'recompose'
 
 const getVariantLeadtime = async variantId => {
@@ -14,30 +13,24 @@ const getVariantLeadtime = async variantId => {
 const ProductVariantLeadtime = props => {
   const { quantity, loading } = props
 
-  if (quantity && loading) return <p>Loading inventory...</p>
+  if (quantity && loading) return null
 
   return (
-    <Container>
-      {typeof quantity === 'number' && quantity <= 1 ? (
-        <p>Only one left in stock, order soon!</p>
-      ) : (
-        <></>
-      )}
-    </Container>
+    <>
+      {typeof quantity === 'number' && quantity <= 2 ? (
+        <p>Only a few left in stock, order soon!</p>
+      ) : null}
+    </>
   )
 }
-
-const Container = styled.div``
 
 ProductVariantLeadtime.defaultProps = {
   quantity: null,
 }
 
 ProductVariantLeadtime.propTypes = {
-  // leadText: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   quantity: PropTypes.number,
-  // variant: PropTypes.objectOf(PropTypes.any).isRequired,
 }
 
 export default compose(

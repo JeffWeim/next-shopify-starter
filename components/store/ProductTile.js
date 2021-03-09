@@ -12,7 +12,10 @@ const ProductTile = props => {
 
   return (
     <div className="ProductTile">
-      <Link href={`/store/product/${product.handle}`}>
+      <Link
+        href="/store/product/[product.handle]"
+        as={`/store/product/${product.handle}`}
+      >
         <a>
           <ProductImage
             src={product.images && product?.images?.edges[0]?.node?.src}

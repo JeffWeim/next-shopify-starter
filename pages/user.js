@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-
 import { compose } from 'recompose'
 
 import withCustomer from '../containers/withCustomer'
@@ -8,14 +8,23 @@ import withAuth from '../containers/withAuth'
 
 import PaddedView from '../components/PaddedView'
 
-const UserPage = () => {
+const UserPage = props => {
+  const { customer } = props
+
   return (
     <PaddedView>
-      <h1>Welcome</h1>
+      <h1>
+        {customer?.firstName ? customer.firstName : null}, Welcome to Your
+        Account
+      </h1>
 
       <p>You&apos;re viewing an authenticated user info page.</p>
     </PaddedView>
   )
+}
+
+UserPage.propTypes = {
+  customer: PropTypes.objectOf(PropTypes.any).isRequired,
 }
 
 export default compose(

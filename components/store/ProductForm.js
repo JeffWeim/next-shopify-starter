@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import { compose, withProps } from 'recompose'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import withCheckoutLineItemsAdd from '../../containers/withCheckoutLineItemsAdd'
-import withCheckoutId from '../../containers/withCheckoutId'
-
 import { toggleDrawer } from '../../lib/redux'
+
+import withCheckoutId from '../../containers/withCheckoutId'
+import withCheckoutLineItemsAdd from '../../containers/withCheckoutLineItemsAdd'
 
 import Button from '../Button'
 
@@ -62,6 +62,7 @@ const ProductForm = props => {
           onVariantSelect={onVariantSelect}
         />
       )}
+
       <Actions>
         <Button
           onClick={handleAddToCartClick}

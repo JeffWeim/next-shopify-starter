@@ -5,14 +5,22 @@ import styled from 'styled-components'
 import Button from '../Button'
 
 const ProductVariantSelectItem = props => {
-  const { name, values, selectedValue, disabled, onSelect, variants } = props
+  const {
+    name,
+    values,
+    selectedValue,
+    disabled,
+    disabledText,
+    onSelect,
+    variants,
+  } = props
 
   return (
     <fieldset className="product-variant">
       <div>
         <Label disabled={disabled}>{name}</Label>
       </div>
-      {disabled && <small />}
+      {disabled && <small>{disabledText}</small>}
 
       <div className="field">
         {!disabled &&
@@ -23,8 +31,8 @@ const ProductVariantSelectItem = props => {
               secondary={value === selectedValue}
               onClick={() => onSelect({ [name]: value })}
               disabled={
-                !variants.find(({ node }) => node.title === value).node
-                  .availableForSale
+                !variants.find(({ node }) => node.title.includes(value))?.node
+                  ?.availableForSale
               }
             >
               {value.replace(/\s*\[.*?\]\s*/g, '')}
@@ -42,6 +50,7 @@ const Label = styled.label`
 `
 
 ProductVariantSelectItem.defaultProps = {
+  disabledText: '',
   selectedValue: '',
 }
 
@@ -50,6 +59,7 @@ ProductVariantSelectItem.propTypes = {
   values: PropTypes.arrayOf(PropTypes.any).isRequired,
   selectedValue: PropTypes.string,
   disabled: PropTypes.bool.isRequired,
+  disabledText: PropTypes.string,
   onSelect: PropTypes.func.isRequired,
   variants: PropTypes.arrayOf(PropTypes.any).isRequired,
 }

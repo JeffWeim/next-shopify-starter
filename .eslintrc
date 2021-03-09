@@ -7,8 +7,7 @@
     "airbnb",
     "eslint-config-prettier",
     "plugin:prettier/recommended",
-    "prettier",
-    "prettier/react"
+    "prettier"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -31,7 +30,11 @@
     ],
     "no-unused-vars": [
       "error",
-      { "vars": "all", "args": "none", "ignoreRestSiblings": false }
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": false
+      }
     ],
     "no-underscore-dangle": "off",
     "camelcase": "off",

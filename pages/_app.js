@@ -1,19 +1,19 @@
-import { ApolloProvider } from 'react-apollo'
-import { compose, withProps } from 'recompose'
-import { motion } from 'framer-motion'
-import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Router, { withRouter } from 'next/router'
 import styled, { ThemeProvider } from 'styled-components'
 import withGA from 'next-ga'
-import withRedux from 'next-redux-wrapper'
+import { ApolloProvider } from '@apollo/client'
+import { PersistGate } from 'redux-persist/integration/react'
+import { Provider, useStore } from 'react-redux'
+import { compose, withProps } from 'recompose'
+import { motion } from 'framer-motion'
 
 import Progress from 'components/navigation/Progress'
 
 import theme from '../theme'
 
-import { makeStore } from '../lib/redux'
+import { wrapper } from '../lib/redux'
 import withShopify from '../lib/shopify'
 
 import Head from '../components/Head'
@@ -23,40 +23,43 @@ import Header from '../components/Header'
 import withOpenDrawer from '../containers/withOpenDrawer'
 
 const App = props => {
-  const { Component, pageProps, store, apollo, router } = props
+  const { Component, pageProps, apollo, router } = props
+  const store = useStore()
 
   return (
     <>
       <Progress theme={theme} />
       <Head />
       <Provider store={store}>
-        <ApolloProvider client={apollo}>
-          <ThemeProvider theme={theme}>
-            <Header />
+        <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
+          <ApolloProvider client={apollo}>
+            <ThemeProvider theme={theme}>
+              <Header />
 
-            <Main
-              key={router.route}
-              initial="pageInitial"
-              animate="pageAnimate"
-              variants={{
-                pageInitial: {
-                  opacity: 0,
-                },
-                pageAnimate: {
-                  opacity: 1,
-                  transition: {
-                    delay: 0.2,
+              <Main
+                key={router.route}
+                initial="pageInitial"
+                animate="pageAnimate"
+                variants={{
+                  pageInitial: {
+                    opacity: 0,
                   },
-                },
-              }}
-            >
-              {/* eslint-disable-next-line */}
+                  pageAnimate: {
+                    opacity: 1,
+                    transition: {
+                      delay: 0.2,
+                    },
+                  },
+                }}
+              >
+                {/* eslint-disable-next-line */}
               <Component {...pageProps} key={router.route} />
-            </Main>
+              </Main>
 
-            <Footer />
-          </ThemeProvider>
-        </ApolloProvider>
+              <Footer />
+            </ThemeProvider>
+          </ApolloProvider>
+        </PersistGate>
       </Provider>
     </>
   )
@@ -73,7 +76,6 @@ App.defaultProps = {
 App.propTypes = {
   Component: PropTypes.oneOfType([PropTypes.node, PropTypes.any]).isRequired,
   pageProps: PropTypes.objectOf(PropTypes.any),
-  store: PropTypes.objectOf(PropTypes.any).isRequired,
   apollo: PropTypes.objectOf(PropTypes.any).isRequired,
   router: PropTypes.objectOf(PropTypes.any).isRequired,
 }
@@ -90,7 +92,7 @@ export default compose(
   withShopify, // this is withApollo
   withRouter,
   withGA('UA-62942263-12', Router),
-  withRedux(makeStore),
+  wrapper.withRedux,
   withOpenDrawer,
   withProps(({ openDrawer }) => ({
     isCartOpen: openDrawer === 'CART',

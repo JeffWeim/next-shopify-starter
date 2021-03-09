@@ -66,7 +66,6 @@ const ProductVariantSelect = props => {
   }
 
   // If you'd like to set a selected option on page load:
-
   // useEffect(() => {
   //   const name = product?.variants?.edges[0].node.selectedOptions[0].name
   //   const value = product?.variants?.edges[0].node.selectedOptions[0].value
@@ -91,6 +90,7 @@ const ProductVariantSelect = props => {
       onSelect={handleOptionSelect}
       variants={product?.variants?.edges}
       disabled={Object.keys(selectedOptions).length < i}
+      disabledText={`Please select a ${product?.options[i - 1]?.name}`}
     />
   ))
 }

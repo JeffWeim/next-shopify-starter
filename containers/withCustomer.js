@@ -1,8 +1,7 @@
 /*
   Query to get Checkout object
 */
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
+import { gql, graphql } from '@apollo/react-hoc'
 import { compose } from 'recompose'
 
 import withCustomerAccessToken from './withCustomerAccessToken'
@@ -41,21 +40,15 @@ const customer = gql`
     }
   }
 `
-
 export default compose(
   withCustomerAccessToken,
-
   graphql(customer, {
     alias: 'withCustomerAccessToken',
-
-    options(props) {
-      return {
-        variables: {
-          id: props.customerAccessToken,
-        },
-      }
-    },
-
+    options: props => ({
+      variables: {
+        customerAccessToken: props.customerAccessToken.accessToken,
+      },
+    }),
     // eslint-disable-next-line
     props({ data: { customer } }) {
       return { customer }

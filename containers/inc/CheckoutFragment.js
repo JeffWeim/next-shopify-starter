@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import { gql } from '@apollo/react-hoc'
 
 export default gql`
   fragment CheckoutFragment on Checkout {

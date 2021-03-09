@@ -68,6 +68,10 @@ const ProductPriceBase = styled.div`
   color: #000;
 `
 
+ProductPrice.defaultProps = {
+  selectedVariant: {},
+}
+
 ProductPrice.propTypes = {
   baseValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
@@ -81,7 +85,7 @@ ProductPrice.propTypes = {
     PropTypes.number,
     PropTypes.bool,
   ]).isRequired,
-  selectedVariant: PropTypes.objectOf(PropTypes.any).isRequired,
+  selectedVariant: PropTypes.objectOf(PropTypes.any),
 }
 
 export default compose(

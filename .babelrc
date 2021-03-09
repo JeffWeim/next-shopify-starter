@@ -7,6 +7,6 @@
         "root": ["./"]
       }
     ],
-    ["styled-components", { "ssr": true, "displayName": false }]
+    ["styled-components", { "ssr": true, "displayName": true }]
   ]
 }

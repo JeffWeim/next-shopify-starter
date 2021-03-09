@@ -1,5 +1,4 @@
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
+import { gql, graphql } from '@apollo/react-hoc'
 
 const product = gql`
   query productQuery($handle: String!) {
@@ -48,8 +47,8 @@ const product = gql`
   }
 `
 
-const withProduct = handleFn =>
-  graphql(product, {
+const withProduct = handleFn => {
+  return graphql(product, {
     alias: 'withProduct',
 
     options(props) {
@@ -65,5 +64,6 @@ const withProduct = handleFn =>
       isProductLoading: data.loading,
     }),
   })
+}
 
 export default withProduct

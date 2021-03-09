@@ -1,8 +1,7 @@
 /*
   Mutation query HoC that updates a checkout object
 */
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
+import { gql, graphql } from '@apollo/react-hoc'
 
 import CheckoutFragment from './inc/CheckoutFragment'
 
