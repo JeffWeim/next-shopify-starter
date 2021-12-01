@@ -4,15 +4,17 @@ import Grid from 'components/Grid'
 
 import ProductTile from './ProductTile'
 
-const ProductListLoading = () => (
-  <>
-    <ProductTile product={{}} key={1} />
-    <ProductTile product={{}} key={2} />
-    <ProductTile product={{}} key={3} />
-  </>
-)
+const ProductListLoading = function () {
+  return (
+    <>
+      <ProductTile product={{}} key={1} />
+      <ProductTile product={{}} key={2} />
+      <ProductTile product={{}} key={3} />
+    </>
+  )
+}
 
-const ProductList = props => {
+const ProductList = function (props) {
   const { products, loading } = props
 
   return (

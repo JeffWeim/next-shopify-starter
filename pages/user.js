@@ -8,7 +8,7 @@ import withAuth from '../containers/withAuth'
 
 import PaddedView from '../components/PaddedView'
 
-const UserPage = props => {
+const UserPage = function(props) {
   const { customer } = props
 
   return (

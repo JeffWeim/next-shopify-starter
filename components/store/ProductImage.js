@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Image from '../Image'
 
-const ProductImage = props => {
+const ProductImage = function(props) {
   return (
     <ProductImageBase>
       <Content>

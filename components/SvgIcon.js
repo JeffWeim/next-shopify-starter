@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withTheme } from 'styled-components'
 
-const SvgIcon = props => {
+const SvgIcon = function(props) {
   const {
     className,
     fill,

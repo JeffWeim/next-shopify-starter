@@ -7,7 +7,7 @@ import ProductPrice from 'components/store/ProductPrice'
 
 import ProductImage from './ProductImage'
 
-const ProductTile = props => {
+const ProductTile = function (props) {
   const { product } = props
 
   return (

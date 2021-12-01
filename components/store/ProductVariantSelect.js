@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 import ProductVariantSelectItem from './ProductVariantSelectItem'
 
-const filterSelectedOptions = (selectedOptions, options) => {
-  return options.reduce((obj, item) => {
+const filterSelectedOptions = (selectedOptions, options) => options.reduce((obj, item) => {
     if (!selectedOptions[item.name]) {
       return obj
     }
@@ -14,7 +13,6 @@ const filterSelectedOptions = (selectedOptions, options) => {
 
     return option
   }, {})
-}
 
 const getAvailableVariants = (variants, selectedOptions) => {
   const availableEdges = variants.edges.filter(variant => {

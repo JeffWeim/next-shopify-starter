@@ -8,7 +8,7 @@ import PaddedView from 'components/PaddedView'
 import withCheckout from 'containers/withCheckout'
 import CartContent from 'components/store/Cart/Content'
 
-const Cart = props => {
+const Cart = function(props) {
   const { checkout, isCheckoutLoading } = props
 
   return (

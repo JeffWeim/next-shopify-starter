@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-const withAuth = Component => props => {
+const withAuth = Component =>
   // eslint-disable-next-line
-  const { isAuthenticated } = props
+  function (props) {
+    // eslint-disable-next-line
+    const { isAuthenticated } = props
 
-  const router = useRouter()
+    const router = useRouter()
 
-  useEffect(() => {
-    if (!isAuthenticated) router.push('/auth')
-  }, [isAuthenticated])
+    useEffect(() => {
+      if (!isAuthenticated) router.push('/auth')
+    }, [isAuthenticated])
 
-  return <Component {...props} />
-}
+    return <Component {...props} />
+  }
 
 export default withAuth

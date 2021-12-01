@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Grid = props => {
+const Grid = function(props) {
   const { children, template, gap } = props
 
   return (

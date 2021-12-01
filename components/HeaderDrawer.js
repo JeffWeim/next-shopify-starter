@@ -10,7 +10,7 @@ import withOpenDrawer from '../containers/withOpenDrawer'
 
 import SvgIcon from './SvgIcon'
 
-const HeaderDrawer = props => {
+const HeaderDrawer = function(props) {
   const { children, dispatch, visible } = props
 
   const handleCloseClick = () => {

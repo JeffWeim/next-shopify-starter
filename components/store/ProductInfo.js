@@ -10,7 +10,7 @@ import { HideOnDesktop, HideOnMobile } from '../HideOn'
 import ProductImage from './ProductImage'
 import ProductForm from './ProductForm'
 
-const ProductInfo = props => {
+const ProductInfo = function(props) {
   const { product, selectedVariant } = props
 
   const [availableVariants, setAvailableVariants] = useState(product?.variants)
@@ -91,10 +91,8 @@ ProductInfo.propTypes = {
 }
 
 export default compose(
-  withProps(({ product, availableVariants }) => {
-    return {
+  withProps(({ product, availableVariants }) => ({
       selectedVariant:
         product?.variants?.edges[0] || availableVariants?.edges[0],
-    }
-  }),
+    })),
 )(ProductInfo)

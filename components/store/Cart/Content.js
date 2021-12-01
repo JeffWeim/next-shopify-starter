@@ -7,8 +7,8 @@ import CartItem from 'components/store/Cart/Item'
 import CartPrice from 'components/store/Cart/Price'
 import Button from 'components/Button'
 
-const Content = ({ checkout }) => (
-  <Section>
+const Content = function({ checkout }) {
+  return <Section>
     <h1>Cart</h1>
 
     <Items>
@@ -35,7 +35,7 @@ const Content = ({ checkout }) => (
       </Button>
     </Footer>
   </Section>
-)
+}
 
 const Footer = styled.div`
   padding-top: 1em;

@@ -1,7 +1,8 @@
-import { URL } from 'url'
-import { createClient } from '@particular./shopify-request'
+const { URL } = require('url')
+const { createClient } = require('@commercetools/sdk-client')
 
-const shopify = new createClient({ // eslint-disable-line
+// eslint-disable-next-line
+const shopify = new createClient({
   store_name: process.env.NEXT_PUBLIC_SHOPIFY_STORE_NAME,
   client_key: process.env.NEXT_PUBLIC_SHOPIFY_API_KEY,
   client_pass: process.env.NEXT_PUBLIC_SHOPIFY_API_PASS,

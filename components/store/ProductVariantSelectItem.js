@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Button from '../Button'
 
-const ProductVariantSelectItem = props => {
+const ProductVariantSelectItem = function(props) {
   const {
     name,
     values,

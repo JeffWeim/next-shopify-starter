@@ -47,8 +47,8 @@ const product = gql`
   }
 `
 
-const withProduct = handleFn => {
-  return graphql(product, {
+const withProduct = handleFn =>
+  graphql(product, {
     alias: 'withProduct',
 
     options(props) {
@@ -64,6 +64,5 @@ const withProduct = handleFn => {
       isProductLoading: data.loading,
     }),
   })
-}
 
 export default withProduct

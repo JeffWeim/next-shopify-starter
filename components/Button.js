@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled, { withTheme } from 'styled-components'
 
-const Button = props => {
+const Button = function(props) {
   const {
     bgColor,
     children,

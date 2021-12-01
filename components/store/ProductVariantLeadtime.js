@@ -10,12 +10,13 @@ const getVariantLeadtime = async variantId => {
   return leadtime
 }
 
-const ProductVariantLeadtime = props => {
+const ProductVariantLeadtime = function (props) {
   const { quantity, loading } = props
 
   if (quantity && loading) return null
 
   return (
+    // eslint-disable-next-line
     <>
       {typeof quantity === 'number' && quantity <= 2 ? (
         <p>Only a few left in stock, order soon!</p>

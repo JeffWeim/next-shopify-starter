@@ -9,7 +9,7 @@ import PaddedView from '../../../components/PaddedView'
 
 import withProduct from '../../../containers/withProduct'
 
-const ProductPage = props => {
+const ProductPage = function(props) {
   const { product, isProductLoading } = props
 
   return (
@@ -42,8 +42,8 @@ ProductPage.propTypes = {
 
 export default compose(
   withRouter,
-  withProduct(({ router }) => {
+  withProduct(({ router }) => 
     // console.log(`selected product id: ${router?.query?.id}`)
-    return router?.query?.handle || router?.query?.slug || ''
-  }),
+     router?.query?.handle || router?.query?.slug || ''
+  ),
 )(ProductPage)

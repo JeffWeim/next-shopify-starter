@@ -60,7 +60,7 @@ const PRODUCTS_QUERY = gql`
  * This file demonstrates how you can create layouts in a CMS like DatoCMS using your stores products. This file queries DatoCMS first,
  * then takes those product id's and queries shopify for a complete set of product data
  */
-const HomePage = props => {
+const HomePage = function(props) {
   const {
     data: {
       carousel: { products: datoProducts },

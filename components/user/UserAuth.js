@@ -10,7 +10,7 @@ import withCustomerAccessTokenCreate from '../../containers/withCustomerAccessTo
 import UserLoginForm from './UserLoginForm'
 import UserRegisterForm from './UserRegisterForm'
 
-const UserAuth = props => {
+const UserAuth = function(props) {
   const { handleLoginSubmit, handleRegisterSubmit } = props
 
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export const HideOnMobile = ({ children }) => {
+export const HideOnMobile = function ({ children }) {
   return <HideMobileBase>{children}</HideMobileBase>
 }
 
@@ -16,7 +16,7 @@ HideOnMobile.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export const HideOnDesktop = ({ children }) => {
+export const HideOnDesktop = function ({ children }) {
   return <HideOnDesktopBase>{children}</HideOnDesktopBase>
 }
 

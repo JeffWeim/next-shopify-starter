@@ -3,7 +3,7 @@ import { Formik } from 'formik'
 
 import Button from '../Button'
 
-const UserRegisterForm = props => {
+const UserRegisterForm = function(props) {
   return (
     <Formik initialValues={{ email: '', password: '' }} {...props}>
       {({

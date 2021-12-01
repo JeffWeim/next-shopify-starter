@@ -10,7 +10,7 @@ import withCustomerAccessTokenCreate from '../containers/withCustomerAccessToken
 import PaddedView from '../components/PaddedView'
 import UserAuth from '../components/user/UserAuth'
 
-const AuthPage = props => {
+const AuthPage = function(props) {
   const { customerAccessTokenCreate, customerAccessToken, dispatch } = props
   const router = useRouter()
 

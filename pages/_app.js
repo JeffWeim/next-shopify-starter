@@ -22,7 +22,7 @@ import Header from '../components/Header'
 
 import withOpenDrawer from '../containers/withOpenDrawer'
 
-const App = props => {
+const App = function (props) {
   const { Component, pageProps, apollo, router } = props
   const store = useStore()
 
@@ -53,7 +53,7 @@ const App = props => {
                 }}
               >
                 {/* eslint-disable-next-line */}
-              <Component {...pageProps} key={router.route} />
+                <Component {...pageProps} key={router.route} />
               </Main>
 
               <Footer />

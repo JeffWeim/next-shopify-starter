@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import Price from 'components/Price'
 
-const ProductPrice = props => {
+const ProductPrice = function(props) {
   const { baseValue, maxValue, compareAt, selectedVariant } = props
 
   return (

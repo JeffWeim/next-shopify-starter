@@ -9,7 +9,7 @@ import withCheckoutLineItemsUpdate from 'containers/withCheckoutLineItemsUpdate'
 import Price from 'components/Price'
 import ProductImage from 'components/store/ProductImage'
 
-const CartItem = props => {
+const CartItem = function(props) {
   const { item, handleMoreClick, handleLessClick } = props
 
   return (

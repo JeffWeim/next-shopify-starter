@@ -13,7 +13,7 @@ import Button from '../Button'
 import ProductVariantLeadtime from './ProductVariantLeadtime'
 import ProductVariantSelect from './ProductVariantSelect'
 
-const ProductForm = props => {
+const ProductForm = function(props) {
   const {
     checkoutId,
     checkoutLineItemsAdd,

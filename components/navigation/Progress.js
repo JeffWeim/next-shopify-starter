@@ -8,6 +8,9 @@ Router.events.on('routeChangeStart', () => {
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
-const Progress = () => <></>
+const Progress = function () {
+  // eslint-disable-next-line
+  return <></>
+}
 
 export default Progress

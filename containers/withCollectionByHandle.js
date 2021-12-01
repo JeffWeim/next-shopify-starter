@@ -44,9 +44,10 @@ const collectionByHandle = gql`
   }
 `
 
-const filter = collection => {
-  return { ...collection, products: { edges: collection?.products?.edges } }
-}
+const filter = collection => ({
+  ...collection,
+  products: { edges: collection?.products?.edges },
+})
 
 const withCollectionByHandle = (handle, { filterUnavailable }) =>
   graphql(collectionByHandle, {

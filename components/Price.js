@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { compose, withProps } from 'recompose'
 
-const Price = props => {
+const Price = function(props) {
   const { formatedValue } = props
 
   return <span className="Price">{formatedValue}</span>

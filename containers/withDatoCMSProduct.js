@@ -36,8 +36,7 @@ const product = gql`
   }
 `
 
-const withDatoCMSProduct = handleFn => {
-  return graphql(product, {
+const withDatoCMSProduct = handleFn => graphql(product, {
     alias: 'withDatoCMSProduct',
 
     options(props) {
@@ -54,6 +53,5 @@ const withDatoCMSProduct = handleFn => {
       products,
     }),
   })
-}
 
 export default withDatoCMSProduct

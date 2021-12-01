@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import GlobalStylesheet from './GlobalStylesheet'
 
-const CustomHead = () => {
+const CustomHead = function() {
   return (
     <div className="Head">
       <Head>

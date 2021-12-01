@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Loading = () => {
+const Loading = function() {
   return <LoadingBase>Loading...</LoadingBase>
 }
 

@@ -1,4 +1,4 @@
-{
+module.exports = {
   "presets": ["next/babel"],
   "plugins": [
     [
@@ -7,6 +7,6 @@
         "root": ["./"]
       }
     ],
-    ["styled-components", { "ssr": true, "displayName": true }]
+    ["styled-components", { "ssr": true, "displayName": process.env.NODE_ENV !== "production" }]
   ]
 }

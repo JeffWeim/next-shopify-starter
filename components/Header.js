@@ -13,7 +13,7 @@ import HeaderDrawer from './HeaderDrawer'
 import HeaderMenu from './HeaderMenu'
 import MainMenu from './MainMenu'
 
-const Header = props => {
+const Header = function(props) {
   const { isCartOpen, isMenuOpen, handleContentClick } = props
 
   return (
@@ -124,8 +124,6 @@ export default compose(
     isMenuOpen: openDrawer === 'MENU',
   })),
   withHandlers({
-    handleContentClick: ({ dispatch, isCartOpen, isMenuOpen }) => () => {
-      return (isCartOpen || isMenuOpen) && dispatch(toggleDrawer('CART'))
-    },
+    handleContentClick: ({ dispatch, isCartOpen, isMenuOpen }) => () => (isCartOpen || isMenuOpen) && dispatch(toggleDrawer('CART')),
   }),
 )(Header)

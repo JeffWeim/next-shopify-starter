@@ -10,7 +10,7 @@ import withOpenDrawer from '../containers/withOpenDrawer'
 
 import SvgIcon from './SvgIcon'
 
-const HeaderMenu = props => {
+const HeaderMenu = function(props) {
   const { checkout, handleCartClick, handleMenuClick } = props
 
   const [count, setCount] = useState(null)

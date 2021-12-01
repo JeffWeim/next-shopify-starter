@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Price from 'components/Price'
 
-const CartPrice = props => {
+const CartPrice = function(props) {
   const { checkout } = props
 
   return (

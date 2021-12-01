@@ -3,28 +3,41 @@ import { gql, graphql } from '@apollo/react-hoc'
 // Change this handle to whatever collection you'd like
 const productList = gql`
   {
-    shop {
-      collectionByHandle(handle: "frontpage") {
-        products(first: 20) {
-          edges {
-            node {
-              id
-              title
-              handle
-              images(first: 1, maxWidth: 800) {
-                edges {
-                  node {
-                    src
-                  }
+    products(first: 100) {
+      edges {
+        node {
+          handle
+          description
+          variants(first: 50) {
+            edges {
+              node {
+                priceV2 {
+                  amount
                 }
+                compareAtPriceV2 {
+                  amount
+                }
+                availableForSale
+                id
               }
-              variants(first: 1) {
-                edges {
-                  node {
-                    id
-                    price
-                  }
-                }
+            }
+          }
+          images(first: 10) {
+            edges {
+              node {
+                altText
+                height
+                id
+                width
+                src
+              }
+            }
+          }
+          metafields(first: 50) {
+            edges {
+              node {
+                value
+                description
               }
             }
           }
